@@ -14,7 +14,7 @@ router.post('/projects', createProject)
 
 router.patch('/projects/:id', updateProject)
 
-router.delete('/projects:id', deleteProject)
+router.delete('/projects/:id', deleteProject)
 
 module.exports = router
 
