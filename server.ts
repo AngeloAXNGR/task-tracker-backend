@@ -16,8 +16,8 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/api/projects', projectRoutes)
-app.use('/api/projects', taskRoutes)
+app.use('/api', projectRoutes)
+app.use('/api', taskRoutes)
 
 
 // connect to the database

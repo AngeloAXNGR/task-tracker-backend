@@ -6,15 +6,15 @@ const {getAllProjects, getProject, createProject, updateProject, deleteProject} 
 const router = express.Router()
 
 // Handlers
-router.get('/', getAllProjects)
+router.get('/projects', getAllProjects)
 
-router.get('/:id', getProject)
+router.get('/projects/:id', getProject)
 
-router.post('/', createProject)
+router.post('/projects', createProject)
 
-router.patch('/:id', updateProject)
+router.patch('/projects/:id', updateProject)
 
-router.delete('/:id', deleteProject)
+router.delete('/projects:id', deleteProject)
 
 module.exports = router
 
