@@ -1,4 +1,5 @@
 const Project = require('../models/projectModel');
+const Task = require('../models/taskModel');
 import mongoose from 'mongoose';
 
 
@@ -58,6 +59,8 @@ const deleteProject = async(req:any, res:any) => {
 	if(!project){
 		return res.status(400).json({error:'Project does not exist'})
 	}
+
+	const deleteTasks = await Task.deleteMany({project_id: id})
 
 	res.status(200).json(project)
 }
