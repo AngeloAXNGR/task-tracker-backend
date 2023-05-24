@@ -5,12 +5,13 @@ require('dotenv').config();
 
 const projectRoutes = require('./routes/project')
 const taskRoutes = require('./routes/task')
+const cors = require('cors');
 
 const app = express()
 
 
+app.use(cors({origin:"http://localhost:5173"}))
 app.use(express.json())
-
 app.use((req, res, next) => {
 	next();
 })
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 // routes
 app.use('/api', projectRoutes)
 app.use('/api', taskRoutes)
+
 
 
 // connect to the database
