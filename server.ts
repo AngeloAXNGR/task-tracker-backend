@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const projectRoutes = require('./routes/project')
 const taskRoutes = require('./routes/task')
+const userRoutes = require('./routes/user')
 const cors = require('cors');
 
 const app = express()
@@ -17,8 +18,10 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/api', projectRoutes)
-app.use('/api', taskRoutes)
+app.use('/api', projectRoutes);
+app.use('/api', taskRoutes);
+app.use('/api', userRoutes);
+
 
 
 
