@@ -2,8 +2,11 @@ import express from 'express';
 
 const {getAllProjects, getProject, createProject, updateProject, deleteProject} = require('../controllers/projectController')
 
+import { requireAuth } from '../middleware/requireAuth';
 
 const router = express.Router()
+
+router.use(requireAuth)
 
 // Handlers
 router.get('/projects', getAllProjects)
