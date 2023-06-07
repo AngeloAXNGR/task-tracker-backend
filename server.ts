@@ -13,14 +13,17 @@ const app = express()
 
 app.use(cors({origin:["http://localhost:5173", "https://mern-task-tracker-wgkx.onrender.com"]}))
 app.use(express.json())
+
 app.use((req, res, next) => {
 	next();
 })
 
 // routes
-app.use('/api', projectRoutes);
-app.use('/api', taskRoutes);
 app.use('/api', userRoutes);
+app.use('/api', taskRoutes);
+app.use('/api', projectRoutes);
+
+
 
 
 
