@@ -4,7 +4,8 @@ import mongoose from 'mongoose';
 
 
 const getAllProjects = async(req:any, res:any) => {
-	const projects = await Project.find({}).sort({createdAt: -1})
+	const user_id = req.user._id
+	const projects = await Project.find({user_id}).sort({createdAt: -1})
 	res.status(200).json(projects)
 
 }
@@ -22,7 +23,8 @@ const createProject = async(req:any, res:any) => {
 
 	// Add data to db
 	try{
-		const project = await Project.create({title})
+		const user_id = req.user._id;
+		const project = await Project.create({title, user_id})
 		res.status(200).json(project)
 	}catch(error:any){
 		res.status(400).json({error:error.message})
