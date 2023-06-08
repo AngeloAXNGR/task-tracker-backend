@@ -9,7 +9,7 @@ const taskSchema = new Schema({
 	},
 	dueDate:{
 		type:String,
-		required:true
+		required:false
 	},
 	priority:{
 		type:String,
@@ -17,7 +17,7 @@ const taskSchema = new Schema({
 	},
 	description:{
 		type:String,
-		required:true
+		required:false
 	},
 	project_id:{
 		type:String,
