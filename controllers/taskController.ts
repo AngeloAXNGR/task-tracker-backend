@@ -17,14 +17,14 @@ const getTask = async(req:any, res:any) => {
 
 const createTask = async(req:any, res:any) => {
 	const {project_id} = req.params;
-	const {title, dueDate, priority} = req.body;
+	const {title, dueDate, priority, description} = req.body;
 
 	// Form Error handling **
 
 
 	// Add data to db
 	try{
-		const task = await Task.create({title, dueDate, priority, project_id})
+		const task = await Task.create({title, dueDate, priority, description,project_id})
 		res.status(200).json(task)
 	}catch(error:any){
 		res.status(400).json({error:error.message})
