@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 
 const getAllProjects = async(req:any, res:any) => {
 	const user_id = req.user._id
-	const projects = await Project.find({user_id}).sort({createdAt: -1})
+	const projects = await Project.find({user_id}).sort({title: 1})
 	res.status(200).json(projects)
 
 }
